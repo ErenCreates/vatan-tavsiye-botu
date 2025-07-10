@@ -41,6 +41,7 @@ def send_email(new_products_with_price):
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(sender, password)
         server.send_message(msg)
+    print("✅ Mail gönderildi!")  # Log için
 
 # Web scraping bölümü
 URL = "https://www.vatanbilgisayar.com/tavsiye-sistem/"
@@ -60,12 +61,8 @@ for p in products:
         price = price_tag.get_text(strip=True)
         current_products_with_price.append((title, price))
 
-# if os.path.exists("prev_products.json"):
-#     with open("prev_products.json", "r", encoding="utf-8") as f:
-#         previous_products = json.load(f)
-# else:
-#     previous_products = []
-
+# TEST AMACIYLA önceki ürünler boş
+previous_products = []
 
 # Sadece ürün isimleri karşılaştırmak için ayır
 previous_product_names = [item[0] for item in previous_products]

@@ -60,8 +60,11 @@ for p in products:
         price = price_tag.get_text(strip=True)
         current_products_with_price.append((title, price))
 
-# Test için öncekileri boş sayıyoruz
-previous_products = []
+# if os.path.exists("prev_products.json"):
+#     with open("prev_products.json", "r", encoding="utf-8") as f:
+#         previous_products = json.load(f)
+# else:
+#     previous_products = []
 
 
 # Sadece ürün isimleri karşılaştırmak için ayır
